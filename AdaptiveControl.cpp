@@ -5,8 +5,8 @@
 #include <QtGui/QMenuBar>
 #include <QtGui/QAction>
 #include <iostream>
-#include <math.h>
-#define PI 3.14159265
+#include "Math.h"
+
 
 using namespace std;
 
