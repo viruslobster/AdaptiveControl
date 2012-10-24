@@ -4,19 +4,41 @@
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
 #include <QtGui/QAction>
+#include <iostream>
+#include <math.h>
+#define PI 3.14159265
 
-AdaptiveControl::AdaptiveControl()
-{
-    QLabel* l = new QLabel( this );
-    l->setText( "Hello World!" );
-    setCentralWidget( l );
-    QAction* a = new QAction(this);
-    a->setText( "Quit" );
-    connect(a, SIGNAL(triggered()), SLOT(close()) );
-    menuBar()->addMenu( "File" )->addAction( a );
+using namespace std;
+
+AdaptiveControl::AdaptiveControl() {
+  updater = new QTimer(this);  
+  connect(updater, SIGNAL(timeout()), this, SLOT(updateLoop()));
+  updater->start(100);
 }
 
-AdaptiveControl::~AdaptiveControl()
-{}
+AdaptiveControl::~AdaptiveControl(){
+  
+  
+}
+
+double AdaptiveControl::f(double x) {
+  return 0;
+}
+
+double AdaptiveControl::g(double x) {
+  return sin(x);  
+}
+
+double AdaptiveControl::h(double x) {
+  if(x < 6 * PI) return 0;
+  if(x >= 6 * PI) return sin(x);
+}
+
+
+
+void AdaptiveControl::updateLoop() {
+  cout << "hello" << endl;
+}
+
 
 #include "AdaptiveControl.moc"
