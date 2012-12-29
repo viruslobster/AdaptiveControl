@@ -41,4 +41,4 @@ void AdaptiveControl::updateLoop() {
 }
 
 
-#include "AdaptiveControl.moc"
+
