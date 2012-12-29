@@ -3,7 +3,7 @@
 
 struct Robot {
   double x, y, theta;
-  void move(double correction);
+  void move(double distance, double turn);
   Robot();
   Robot(double x, double y);
 };
