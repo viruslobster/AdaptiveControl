@@ -2,7 +2,7 @@
 #define ROBOT_H
 
 struct Robot {
-  double x, y;
+  double x, y, theta;
   void move(double correction);
   Robot();
   Robot(double x, double y);
