@@ -3,9 +3,10 @@
 
 #include <QtGui/QMainWindow>
 #include <QTimer>
+#include "Controller.h"
+#include "Robot.h"
 
-class AdaptiveControl : public QMainWindow
-{
+class AdaptiveControl : public QMainWindow {
 Q_OBJECT
 public:
   AdaptiveControl();
@@ -17,6 +18,11 @@ private:
   double g(double x);
   double h(double x);
   QTimer* updater;
+  Controller* controller;
+  Robot* robot;
+  double (*pathFunction)(double);
+  double speed;
+  
 };
 
 #endif // AdaptiveControl_H

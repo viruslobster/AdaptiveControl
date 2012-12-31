@@ -11,6 +11,8 @@
 using namespace std;
 
 AdaptiveControl::AdaptiveControl() {
+  speed = 1;
+  robot = new Robot(0, 0);
   updater = new QTimer(this);  
   connect(updater, SIGNAL(timeout()), this, SLOT(updateLoop()));
   updater->start(100);
@@ -37,7 +39,13 @@ double AdaptiveControl::h(double x) {
 
 
 void AdaptiveControl::updateLoop() {
-  cout << "hello" << endl;
+  // double error = robot.x - pathFunction(robot.x);
+  // double correction = controller.getCorrection(error);
+  // robot.move(speed, correction);
+  // updateGUI();
+  // if(robot.x > 500) updater->stop();
+  
+  
 }
 
 
