@@ -1,11 +1,11 @@
 #include <QtGui/QApplication>
-#include "AdaptiveControl.h"
+#include "mainwindow.h"
 
 
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
-    AdaptiveControl foo;
+    MainWindow foo;
     foo.show();
     return app.exec();
 }

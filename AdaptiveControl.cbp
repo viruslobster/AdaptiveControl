@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="AdaptiveControl" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\src\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/michael/src/cpp/AdaptiveControl" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/michael/src/cpp/AdaptiveControl" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="AdaptiveControl">
+         <Option output="/home/michael/src/cpp/AdaptiveControl/lib/libAdaptiveControl.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/michael/src/cpp/AdaptiveControl/lib" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/michael/src/cpp/AdaptiveControl" />
+            <Add directory="/home/michael/src/cpp/AdaptiveControl/lib" />
+            <Add directory="/usr/include/Qt3Support" />
+            <Add directory="/usr/include/QtCore" />
+            <Add directory="/usr/include/QtDBus" />
+            <Add directory="/usr/include/QtDeclarative" />
+            <Add directory="/usr/include/QtDesigner" />
+            <Add directory="/usr/include/QtGui" />
+            <Add directory="/usr/include/QtHelp" />
+            <Add directory="/usr/include/QtMultimedia" />
+            <Add directory="/usr/include/QtNetwork" />
+            <Add directory="/usr/include/QtOpenGL" />
+            <Add directory="/usr/include/QtScript" />
+            <Add directory="/usr/include/QtScriptTools" />
+            <Add directory="/usr/include/QtSql" />
+            <Add directory="/usr/include/QtSvg" />
+            <Add directory="/usr/include/QtTest" />
+            <Add directory="/usr/include/QtUiTools" />
+            <Add directory="/usr/include/QtWebKit" />
+            <Add directory="/usr/include/QtXml" />
+            <Add directory="/usr/include/QtXmlPatterns" />
+            <Add directory="/usr/include/phonon" />
+            <Add directory="/usr/share/qt/mkspecs/default" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/lib/Makefile&quot;  VERBOSE=1 AdaptiveControl" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/lib/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/lib/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="AdaptiveControl/fast">
+         <Option output="/home/michael/src/cpp/AdaptiveControl/lib/libAdaptiveControl.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/michael/src/cpp/AdaptiveControl/lib" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/michael/src/cpp/AdaptiveControl" />
+            <Add directory="/home/michael/src/cpp/AdaptiveControl/lib" />
+            <Add directory="/usr/include/Qt3Support" />
+            <Add directory="/usr/include/QtCore" />
+            <Add directory="/usr/include/QtDBus" />
+            <Add directory="/usr/include/QtDeclarative" />
+            <Add directory="/usr/include/QtDesigner" />
+            <Add directory="/usr/include/QtGui" />
+            <Add directory="/usr/include/QtHelp" />
+            <Add directory="/usr/include/QtMultimedia" />
+            <Add directory="/usr/include/QtNetwork" />
+            <Add directory="/usr/include/QtOpenGL" />
+            <Add directory="/usr/include/QtScript" />
+            <Add directory="/usr/include/QtScriptTools" />
+            <Add directory="/usr/include/QtSql" />
+            <Add directory="/usr/include/QtSvg" />
+            <Add directory="/usr/include/QtTest" />
+            <Add directory="/usr/include/QtUiTools" />
+            <Add directory="/usr/include/QtWebKit" />
+            <Add directory="/usr/include/QtXml" />
+            <Add directory="/usr/include/QtXmlPatterns" />
+            <Add directory="/usr/include/phonon" />
+            <Add directory="/usr/share/qt/mkspecs/default" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/lib/Makefile&quot;  VERBOSE=1 AdaptiveControl/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/lib/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/lib/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="AdaptiveControlGUI">
+         <Option output="/home/michael/src/cpp/AdaptiveControl/bin/AdaptiveControlGUI" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/michael/src/cpp/AdaptiveControl/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/michael/src/cpp/AdaptiveControl" />
+            <Add directory="/home/michael/src/cpp/AdaptiveControl/lib" />
+            <Add directory="/usr/include/Qt3Support" />
+            <Add directory="/usr/include/QtCore" />
+            <Add directory="/usr/include/QtDBus" />
+            <Add directory="/usr/include/QtDeclarative" />
+            <Add directory="/usr/include/QtDesigner" />
+            <Add directory="/usr/include/QtGui" />
+            <Add directory="/usr/include/QtHelp" />
+            <Add directory="/usr/include/QtMultimedia" />
+            <Add directory="/usr/include/QtNetwork" />
+            <Add directory="/usr/include/QtOpenGL" />
+            <Add directory="/usr/include/QtScript" />
+            <Add directory="/usr/include/QtScriptTools" />
+            <Add directory="/usr/include/QtSql" />
+            <Add directory="/usr/include/QtSvg" />
+            <Add directory="/usr/include/QtTest" />
+            <Add directory="/usr/include/QtUiTools" />
+            <Add directory="/usr/include/QtWebKit" />
+            <Add directory="/usr/include/QtXml" />
+            <Add directory="/usr/include/QtXmlPatterns" />
+            <Add directory="/usr/include/phonon" />
+            <Add directory="/usr/share/qt/mkspecs/default" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/bin/Makefile&quot;  VERBOSE=1 AdaptiveControlGUI" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/bin/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/bin/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="AdaptiveControlGUI/fast">
+         <Option output="/home/michael/src/cpp/AdaptiveControl/bin/AdaptiveControlGUI" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/michael/src/cpp/AdaptiveControl/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/michael/src/cpp/AdaptiveControl" />
+            <Add directory="/home/michael/src/cpp/AdaptiveControl/lib" />
+            <Add directory="/usr/include/Qt3Support" />
+            <Add directory="/usr/include/QtCore" />
+            <Add directory="/usr/include/QtDBus" />
+            <Add directory="/usr/include/QtDeclarative" />
+            <Add directory="/usr/include/QtDesigner" />
+            <Add directory="/usr/include/QtGui" />
+            <Add directory="/usr/include/QtHelp" />
+            <Add directory="/usr/include/QtMultimedia" />
+            <Add directory="/usr/include/QtNetwork" />
+            <Add directory="/usr/include/QtOpenGL" />
+            <Add directory="/usr/include/QtScript" />
+            <Add directory="/usr/include/QtScriptTools" />
+            <Add directory="/usr/include/QtSql" />
+            <Add directory="/usr/include/QtSvg" />
+            <Add directory="/usr/include/QtTest" />
+            <Add directory="/usr/include/QtUiTools" />
+            <Add directory="/usr/include/QtWebKit" />
+            <Add directory="/usr/include/QtXml" />
+            <Add directory="/usr/include/QtXmlPatterns" />
+            <Add directory="/usr/include/phonon" />
+            <Add directory="/usr/share/qt/mkspecs/default" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/bin/Makefile&quot;  VERBOSE=1 AdaptiveControlGUI/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/bin/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/michael/src/cpp/AdaptiveControl/bin/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/Math.cpp">
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/Robot.cpp">
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/src/main.cpp">
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/src/mainwindow.cpp">
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/Math.h">
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/Robot.h">
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/src/mainwindow.h">
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\lib\" />
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/src/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\src\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>
