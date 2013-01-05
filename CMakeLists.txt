@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.6)
 find_package(Qt4 REQUIRED)
 
 
-include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR} lib)
+include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR} lib src)
 add_subdirectory(lib)
 add_subdirectory(src bin)
 #set(AdaptiveControl_SRCS src/AdaptiveControl.cpp src/main.cpp src/Math.cpp src/Robot.cpp)

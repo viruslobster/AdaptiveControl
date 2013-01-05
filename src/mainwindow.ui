@@ -34,8 +34,8 @@
       <enum>QLayout::SetDefaultConstraint</enum>
      </property>
      <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
+      <widget class="LineTrackerWidget" name="lineTrackerWidget" native="true">
+       <property name="text" stdset="0">
         <string>PushButton</string>
        </property>
       </widget>
@@ -172,6 +172,13 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LineTrackerWidget</class>
+   <extends>QWidget</extends>
+   <header>linetrackerwidget.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
