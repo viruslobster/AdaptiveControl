@@ -35,12 +35,12 @@ double MainWindow::f(double x) {
 }
 
 double MainWindow::g(double x) {
-  return 50 * sin(0.1*x);
+  return 50 * sin(0.01*x);
 }
 
 double MainWindow::h(double x) {
   if(x < 350) return 0;
-  if(x >= 350) return 50 * sin(0.1*x);
+  if(x >= 350) return 50 * sin(0.01*x);
 }
 
 
