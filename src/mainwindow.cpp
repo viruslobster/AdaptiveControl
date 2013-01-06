@@ -1,12 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "Math.h"
+#include "PIDcontroller.h"
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-
+    controller = new PIDcontroller();
     pathFunction = 'f';
     ui->setupUi(this);    
     ui->lineTrackerWidget->window = this;
@@ -48,6 +50,8 @@ void MainWindow::updateLoop() {
   // robot.move(speed, correction);
   // updateGUI();
   // if(robot.x > 500) updater->stop();
+  
+  //std::cout << controller->getCorrection(3) << std::endl;
 
 
 }

@@ -1,2 +1,2 @@
-add_library(AdaptiveControl SHARED Math.cpp Robot.cpp)
+add_library(AdaptiveControl SHARED Math.cpp Robot.cpp PIDcontroller.cpp)
 
