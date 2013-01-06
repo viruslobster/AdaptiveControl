@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTimer>
+#include "Controller.h"
+#include "Robot.h"
 
 namespace Ui {
 class MainWindow;
@@ -9,14 +12,29 @@ class MainWindow;
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+  Q_OBJECT
     
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-    
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
+  double f(double x);
+  double g(double x);
+  double h(double x);
+  char pathFunction;
+
+private slots:
+  void updateLoop();
+  void on_radioButton_4_clicked();
+  void on_radioButton_3_clicked();
+  void on_radioButton_5_clicked();
+
 private:
-    Ui::MainWindow *ui;
+  Ui::MainWindow *ui;
+  QTimer* updater;
+  Controller* controller;
+  Robot* robot;
+  double speed;
+
 };
 
 #endif // MAINWINDOW_H

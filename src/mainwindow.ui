@@ -16,6 +16,12 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>809</width>
+    <height>0</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Adaptive Control</string>
   </property>
@@ -69,6 +75,9 @@
            <property name="text">
             <string>PID</string>
            </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroup</string>
+           </attribute>
           </widget>
          </item>
          <item>
@@ -76,6 +85,9 @@
            <property name="text">
             <string>Nueral Network</string>
            </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroup</string>
+           </attribute>
           </widget>
          </item>
          <item>
@@ -109,9 +121,18 @@
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
           <widget class="QRadioButton" name="radioButton_4">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
            <property name="text">
             <string>f(x)</string>
            </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroup_2</string>
+           </attribute>
           </widget>
          </item>
          <item>
@@ -119,6 +140,9 @@
            <property name="text">
             <string>g(x)</string>
            </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroup_2</string>
+           </attribute>
           </widget>
          </item>
          <item>
@@ -126,6 +150,9 @@
            <property name="text">
             <string>h(x)</string>
            </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroup_2</string>
+           </attribute>
           </widget>
          </item>
          <item>
@@ -181,4 +208,8 @@
  </customwidgets>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+  <buttongroup name="buttonGroup_2"/>
+ </buttongroups>
 </ui>

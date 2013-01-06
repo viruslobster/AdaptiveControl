@@ -36,6 +36,7 @@
          <Compiler>
             <Add directory="/home/michael/src/cpp/AdaptiveControl" />
             <Add directory="/home/michael/src/cpp/AdaptiveControl/lib" />
+            <Add directory="/home/michael/src/cpp/AdaptiveControl/src" />
             <Add directory="/usr/include/Qt3Support" />
             <Add directory="/usr/include/QtCore" />
             <Add directory="/usr/include/QtDBus" />
@@ -74,6 +75,7 @@
          <Compiler>
             <Add directory="/home/michael/src/cpp/AdaptiveControl" />
             <Add directory="/home/michael/src/cpp/AdaptiveControl/lib" />
+            <Add directory="/home/michael/src/cpp/AdaptiveControl/src" />
             <Add directory="/usr/include/Qt3Support" />
             <Add directory="/usr/include/QtCore" />
             <Add directory="/usr/include/QtDBus" />
@@ -111,7 +113,9 @@
          <Option compiler="gcc" />
          <Compiler>
             <Add directory="/home/michael/src/cpp/AdaptiveControl" />
+            <Add directory="/home/michael/src/cpp/AdaptiveControl/bin" />
             <Add directory="/home/michael/src/cpp/AdaptiveControl/lib" />
+            <Add directory="/home/michael/src/cpp/AdaptiveControl/src" />
             <Add directory="/usr/include/Qt3Support" />
             <Add directory="/usr/include/QtCore" />
             <Add directory="/usr/include/QtDBus" />
@@ -149,7 +153,9 @@
          <Option compiler="gcc" />
          <Compiler>
             <Add directory="/home/michael/src/cpp/AdaptiveControl" />
+            <Add directory="/home/michael/src/cpp/AdaptiveControl/bin" />
             <Add directory="/home/michael/src/cpp/AdaptiveControl/lib" />
+            <Add directory="/home/michael/src/cpp/AdaptiveControl/src" />
             <Add directory="/usr/include/Qt3Support" />
             <Add directory="/usr/include/QtCore" />
             <Add directory="/usr/include/QtDBus" />
@@ -184,6 +190,8 @@
       </Unit>
       <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/Robot.cpp">
       </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/src/linetrackerwidget.cpp">
+      </Unit>
       <Unit filename="/home/michael/src/cpp/AdaptiveControl/src/main.cpp">
       </Unit>
       <Unit filename="/home/michael/src/cpp/AdaptiveControl/src/mainwindow.cpp">
@@ -192,7 +200,11 @@
       </Unit>
       <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/Robot.h">
       </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/src/linetrackerwidget.h">
+      </Unit>
       <Unit filename="/home/michael/src/cpp/AdaptiveControl/src/mainwindow.h">
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/src/mainwindow.ui">
       </Unit>
       <Unit filename="/home/michael/src/cpp/AdaptiveControl/CMakeLists.txt">
           <Option virtualFolder="CMake Files\" />
