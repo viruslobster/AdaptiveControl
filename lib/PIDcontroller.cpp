@@ -1,7 +1,13 @@
 #include "PIDcontroller.h"
-#include <sys/time.h>
-#include <stdio.h>
-#include <unistd.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <boost/algorithm/string.hpp>
+#include <vector>
+#include <stdlib.h>
+
+using namespace std;
+using namespace boost;
 
 PIDcontroller::PIDcontroller() {
   isfirstrun = true;
@@ -48,6 +54,33 @@ double PIDcontroller::getCorrection (double error) {
   
   return correction;
 }
+
+void PIDcontroller::loadConfig (char c) {
+  string filename = "pid.";
+  filename += c;
+  filename.append(".config");
+  ifstream file(filename.c_str());
+  
+  if(file.is_open()) {
+    string line;
+    getline(file, line);    
+    file.close();
+    
+    vector<string> fields;
+    split(fields, line, is_any_of(","));
+    double p, i, d;
+    p = atof(fields[0].c_str());
+    i = atof(fields[1].c_str());
+    d = atof(fields[2].c_str());
+    cout << "tune: " << p << ", " << i << ", " << d << endl;
+    tunePID(p, i, d);
+  } else {
+    cerr << "Cannot open " << filename << endl;
+  }
+  
+
+}
+
 
 void PIDcontroller::tunePID(double Kp, double Ki, double Kd) {
   this->Kp = Kp;

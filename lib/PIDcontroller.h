@@ -9,6 +9,7 @@ public:
     PIDcontroller();
     PIDcontroller(double, double);
     double getCorrection(double);
+    void loadConfig(char);
     void tunePID(double, double, double);
     
 private:
