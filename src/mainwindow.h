@@ -29,8 +29,9 @@ private slots:
   void on_radioButton_3_clicked();
   void on_radioButton_5_clicked();
   void on_pushButton_2_clicked();
+  void on_pushButton_clicked();
 
-private:
+private:  
   Ui::MainWindow *ui;
   QTimer* updater;
   Controller* controller;  

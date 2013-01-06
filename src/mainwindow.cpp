@@ -4,6 +4,7 @@
 #include "PIDcontroller.h"
 #include <iostream>
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -49,14 +50,15 @@ void MainWindow::updateLoop() {
    double error = 0;
    switch(pathFunction) {
      case 'f':
-       error = f(robot->y) - robot->y;
+       error = f(robot->x) - robot->y;
        
        break;
      case 'g':
-       error = g(robot->y) - robot->y;
+       error = g(robot->x) - robot->y;
+       std::cout << "yo";
        break;
      case 'h':
-       error = h(robot->y) - robot->y;
+       error = h(robot->x) - robot->y;
        
        break;
      
@@ -67,6 +69,7 @@ void MainWindow::updateLoop() {
    this->repaint();
    if(robot->x > 700) updater->stop();
   
+  std::cout << "path: " << pathFunction << ", ";
   std::cout << "Error:" << error << ", ";
   std::cout << "Correction:" << correction << std::endl;
 
@@ -76,33 +79,42 @@ void MainWindow::updateLoop() {
 
 
 void MainWindow::on_radioButton_4_clicked() {
-    this->pathFunction = 'f';
-    ui->lineTrackerWidget->clear();
-    ui->lineTrackerWidget->drawPath();
-    this->repaint();
+  controller->loadConfig(pathFunction);
+  this->pathFunction = 'f';
+  ui->lineTrackerWidget->clear();
+  ui->lineTrackerWidget->drawPath();
+  this->repaint();
 
 }
 
 void MainWindow::on_radioButton_3_clicked() {
-    this->pathFunction = 'g';
-    ui->lineTrackerWidget->clear();
-    ui->lineTrackerWidget->drawPath();
-    this->repaint();
+  controller->loadConfig(pathFunction);
+  this->pathFunction = 'g';
+  ui->lineTrackerWidget->clear();
+  ui->lineTrackerWidget->drawPath();
+  this->repaint();
 
 }
 
 void MainWindow::on_radioButton_5_clicked() {
-    this->pathFunction = 'h';
-    ui->lineTrackerWidget->clear();
-    ui->lineTrackerWidget->drawPath();
-    this->repaint();
+  controller->loadConfig(pathFunction);
+  this->pathFunction = 'h';
+  ui->lineTrackerWidget->clear();
+  ui->lineTrackerWidget->drawPath();
+  this->repaint();
 }
 
 void MainWindow::on_pushButton_2_clicked() {
   ui->lineTrackerWidget->drawPath();
   delete controller;
   controller = new PIDcontroller(-1000, 1000);
+  controller->loadConfig(pathFunction);
   delete robot;
   robot = new Robot(0, -50);
   updater->start(10);
 }
+
+void MainWindow::on_pushButton_clicked() {
+  controller->loadConfig(pathFunction);
+}
+

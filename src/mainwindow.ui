@@ -113,7 +113,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Path Function</string>
+          <string>Path Function:</string>
          </property>
         </widget>
        </item>
@@ -171,16 +171,32 @@
         </layout>
        </item>
        <item row="3" column="0">
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="font">
-          <font>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Run Simulation</string>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <item>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Run Simulation</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton">
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Tune</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
