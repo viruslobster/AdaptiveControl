@@ -14,7 +14,7 @@ Robot::Robot(double x, double y) {
 }
 
 void Robot::move(double distance, double turn) {
-  theta += turn + randn_notrig(0, 2.0 * (PI / 180.0));
+  theta += turn + randn_notrig(0, 0.5 * (PI / 180.0));
   x += distance * cos(theta);
   y += distance * sin(theta);
 }
