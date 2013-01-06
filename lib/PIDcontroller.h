@@ -7,6 +7,7 @@ class PIDcontroller : public Controller {
 
 public:
     PIDcontroller();
+    PIDcontroller(double, double);
     double getCorrection(double);
     void tunePID(double, double, double);
     
@@ -17,6 +18,7 @@ private:
     double lastError;
     long lastTime;
     bool isfirstrun;
+    double min, max;
     
 };
 

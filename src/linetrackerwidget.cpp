@@ -50,6 +50,12 @@ void LineTrackerWidget::drawPath() {
 }
 
 void LineTrackerWidget::drawRobot() {
+  QPen pen(Qt::red, 2, Qt::SolidLine);
+
+  QPainter imagePainter(image);
+  imagePainter.setPen(pen);
+  double OFFSET = image->height() / 2.0;
+  imagePainter.drawPoint(window->robot->x, window->robot->y + OFFSET);
 
 }
 
