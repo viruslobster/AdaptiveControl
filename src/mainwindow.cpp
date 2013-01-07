@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "Math.h"
 #include "PIDcontroller.h"
+#include "NeuralNetwork.h"
 #include <iostream>
 
 
@@ -63,7 +64,7 @@ void MainWindow::updateLoop() {
      
    }
    double correction = controller->getCorrection(error);
-   robot->move(speed, map(correction, -1000, 1000, -PI/2, PI/2));
+   robot->move(speed, mapValues(correction, -1000, 1000, -PI/2, PI/2));
    ui->lineTrackerWidget->drawRobot();
    this->repaint();
    if(robot->x > 700) updater->stop();
@@ -106,7 +107,25 @@ void MainWindow::on_radioButton_5_clicked() {
 void MainWindow::on_pushButton_2_clicked() {
   ui->lineTrackerWidget->drawPath();
   delete controller;
-  controller = new PIDcontroller(-1000, 1000);
+  if(ui->radioButton_2->isChecked()) {
+    controller = new PIDcontroller(-1000, 1000); 
+    
+  } else if(ui->radioButton->isChecked()) {
+    controller = new NeuralNetwork(1, 4);
+    
+  } else if(ui->radioButton_6->isChecked()) {
+    controller = new NeuralNetwork(1, 6);
+    
+  } else if(ui->radioButton_7->isChecked()) {
+    controller = new NeuralNetwork(2, 4);
+    
+  } else if(ui->radioButton_8->isChecked()) {
+    controller = new NeuralNetwork(2, 6);
+    
+  } else {
+    controller = new PIDcontroller(-1000, 1000);
+  }
+  
   controller->loadConfig(pathFunction);
   delete robot;
   robot = new Robot(0, -50);

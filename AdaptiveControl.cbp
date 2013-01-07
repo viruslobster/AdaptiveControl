@@ -188,6 +188,12 @@
       </Build>
       <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/Math.cpp">
       </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/NeuralNetwork.cpp">
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/Node.cpp">
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/PIDcontroller.cpp">
+      </Unit>
       <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/Robot.cpp">
       </Unit>
       <Unit filename="/home/michael/src/cpp/AdaptiveControl/src/linetrackerwidget.cpp">
@@ -197,6 +203,12 @@
       <Unit filename="/home/michael/src/cpp/AdaptiveControl/src/mainwindow.cpp">
       </Unit>
       <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/Math.h">
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/NeuralNetwork.h">
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/Node.h">
+      </Unit>
+      <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/PIDcontroller.h">
       </Unit>
       <Unit filename="/home/michael/src/cpp/AdaptiveControl/lib/Robot.h">
       </Unit>

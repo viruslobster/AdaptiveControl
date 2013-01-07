@@ -5,5 +5,5 @@
 #include <math.h>
 double randn_notrig(double mu=0.0, double sigma=1.0);
 double randn_trig(double mu=0.0, double sigma=1.0);
-double map(double, double, double, double, double);
+double mapValues(double, double, double, double, double);
 #endif // MATH_H
