@@ -29,6 +29,16 @@ NeuralNetwork::NeuralNetwork (int num_hidden_layers, int num_hidden_nodes) {
 
 }
 
+NeuralNetwork::~NeuralNetwork() {
+  delete outputNode;
+  for(int i=0;i<num_hidden_layers;i++) {
+   delete[] hiddenLayer[i]; 
+  }
+  delete[] hiddenLayer;
+
+}
+
+
 
 void NeuralNetwork::loadConfig (char) {
 

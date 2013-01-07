@@ -10,11 +10,11 @@ class NeuralNetwork : public Controller {
 
 public:
     NeuralNetwork(int num_hidden_layers, int num_hidden_nodes);
+    ~NeuralNetwork();
     virtual void loadConfig (char);
     virtual double getCorrection (double);
     
-private:
-    Node* inputNodes;
+private:    
     Node* outputNode;
     Node** hiddenLayer;
     double integral;
