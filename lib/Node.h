@@ -6,6 +6,8 @@ using namespace std;
 class Node {
 public:
     Node(int num_inputs);
+    Node();
+    void setInputs(int num_inputs);
     double input(vector<double> &input);
     
 private:

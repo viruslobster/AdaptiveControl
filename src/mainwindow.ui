@@ -86,7 +86,37 @@
          <item>
           <widget class="QRadioButton" name="radioButton">
            <property name="text">
-            <string>Nueral Network</string>
+            <string>NN (1L4N)</string>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroup</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_6">
+           <property name="text">
+            <string>NN (1L6N)</string>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroup</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_7">
+           <property name="text">
+            <string>NN (2L4N)</string>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroup</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_8">
+           <property name="text">
+            <string>NN (2L6N)</string>
            </property>
            <attribute name="buttonGroup">
             <string notr="true">buttonGroup</string>
@@ -228,7 +258,7 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup"/>
   <buttongroup name="buttonGroup_2"/>
+  <buttongroup name="buttonGroup"/>
  </buttongroups>
 </ui>

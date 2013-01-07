@@ -54,8 +54,7 @@ void MainWindow::updateLoop() {
        
        break;
      case 'g':
-       error = g(robot->x) - robot->y;
-       std::cout << "yo";
+       error = g(robot->x) - robot->y;       
        break;
      case 'h':
        error = h(robot->x) - robot->y;
