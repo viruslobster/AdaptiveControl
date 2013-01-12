@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include "Math.h"
 #include "PIDcontroller.h"
-#include "NeuralNetwork.h"
 #include <iostream>
 
 
@@ -111,16 +110,16 @@ void MainWindow::on_pushButton_2_clicked() {
     controller = new PIDcontroller(-1000, 1000); 
     
   } else if(ui->radioButton->isChecked()) {
-    controller = new NeuralNetwork(1, 4);
+    //controller = new NeuralNetwork(1, 4);
     
   } else if(ui->radioButton_6->isChecked()) {
-    controller = new NeuralNetwork(1, 6);
+    //controller = new NeuralNetwork(1, 6);
     
   } else if(ui->radioButton_7->isChecked()) {
-    controller = new NeuralNetwork(2, 4);
+    //controller = new NeuralNetwork(2, 4);
     
   } else if(ui->radioButton_8->isChecked()) {
-    controller = new NeuralNetwork(2, 6);
+    //controller = new NeuralNetwork(2, 6);
     
   } else {
     controller = new PIDcontroller(-1000, 1000);

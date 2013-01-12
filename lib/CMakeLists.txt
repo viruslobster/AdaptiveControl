@@ -1,2 +1,2 @@
-add_library(AdaptiveControl SHARED Math.cpp Robot.cpp PIDcontroller.cpp NeuralNetwork.cpp Node.cpp)
+add_library(AdaptiveControl SHARED Math.cpp Robot.cpp PIDcontroller.cpp)
 

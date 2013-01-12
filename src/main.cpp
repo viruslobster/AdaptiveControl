@@ -3,7 +3,6 @@
 #include <ctime> 
 #include <cstdlib>
 #include <iostream>
-#include "NeuralNetwork.h"
 
 using namespace std;
 
