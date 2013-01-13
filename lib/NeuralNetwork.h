@@ -30,7 +30,7 @@ typedef std::vector<Node> Layer;
 class NeuralNetwork {
 public:
   NeuralNetwork(int num_inputs, int num_outputs, int num_hidden_layers, int num_hidden_nodes);
-  double input(std::vector<double> inputs);
+  std::vector<double> input(std::vector<double> &inputs);
   double learn(double error);
   void update();
   std::vector< Layer > layers;
@@ -40,6 +40,7 @@ public:
 private:
   Layer createLayer(int neurons, int inputs);
   int num_inputs, num_outputs, num_hidden_layers, num_hidden_nodes;
+  double sigmoid(double value);
   
   
 };
