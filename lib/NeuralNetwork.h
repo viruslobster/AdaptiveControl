@@ -7,13 +7,14 @@
 
 
 struct Node {
-  std::vector<double> wieghts;  
+  std::vector<double> wieghts;
+  std::vector<double> inputs;
   double output;
   double blame;
   Node(int inputs) {
     for(int i=0;i<inputs;i++) {
       double f = (double)rand() / RAND_MAX;
-      wieghts.push_back(-0.5 + f);//random number between -0.5 and 0.5
+      wieghts.push_back(-1 + f * 2);//random number between -1 and 1
     }    
   }
   
@@ -31,7 +32,7 @@ class NeuralNetwork {
 public:
   NeuralNetwork(int num_inputs, int num_outputs, int num_hidden_layers, int num_hidden_nodes);
   std::vector<double> input(std::vector<double> &inputs);
-  double learn(double error);
+  void learn(double error);
   void update();
   std::vector< Layer > layers;
   void print();
