@@ -30,41 +30,25 @@ CBackProp::CBackProp(int nl, int *sz, double b, double a) : beta (b), alpha (a) 
 
     //	init space for each wieght
     weight = new double**[numl];
-
-    for(int i = 1; i < numl; i++) {
-        weight[i] = new double*[lsize[i]];
-	for( int j = 0; j < lsize[i]; j++ ) {
-            weight[i][j] = new double[lsize[i - 1] + 1];
-        }
-    }
-
     //	init memory for previous weights
     prevDwt = new double**[numl];
-
-    for ( int i = 1; i < numl; i++ ) {
-        prevDwt[i] = new double*[lsize[i]];
-
-    }
-
-    for ( int i = 1; i < numl; i++ ) {
-        for ( int j = 0; j < lsize[i]; j++ ) {
-            prevDwt[i][j] = new double[lsize[i - 1] + 1];
-        }
-    }
-
     //	assign random initial wieghts
     srand ((unsigned)(time(NULL)));// seed the random number generator
 
-    for(int i = 1; i < numl; i++)
-        for(int j = 0; j < lsize[i]; j++)
-            for(int k = 0; k < lsize[i - 1] + 1; k++)
-                weight[i][j][k] = ( double ) ( rand() ) / ( RAND_MAX / 2 ) - 1; //32767
+    for(int i = 1; i < numl; i++) {
+        weight[i] = new double*[lsize[i]];
+        prevDwt[i] = new double*[lsize[i]];
 
-    //	initialize previous weights to 0 for first iteration
-    for ( int i = 1; i < numl; i++ )
-        for ( int j = 0; j < lsize[i]; j++ )
-            for ( int k = 0; k < lsize[i - 1] + 1; k++ )
+        for( int j = 0; j < lsize[i]; j++ ) {
+            weight[i][j] = new double[lsize[i - 1] + 1];
+            prevDwt[i][j] = new double[lsize[i - 1] + 1];
+
+            for(int k = 0; k < lsize[i - 1] + 1; k++) {
+                weight[i][j][k] = ( double ) ( rand() ) / ( RAND_MAX / 2 ) - 1; //32767
                 prevDwt[i][j][k] = ( double ) 0.0;
+            }
+        }
+    }
 }
 
 
