@@ -6,8 +6,6 @@
 
 
 CBackProp::CBackProp(int nl, int *sz, double b, double a) : beta (b), alpha (a) {
-
-
     // store layers and layer sizes
     numl = nl;
     lsize = new int[numl];
@@ -35,10 +33,7 @@ CBackProp::CBackProp(int nl, int *sz, double b, double a) : beta (b), alpha (a) 
 
     for(int i = 1; i < numl; i++) {
         weight[i] = new double*[lsize[i]];
-    }
-
-    for(int i = 1; i < numl; i++) {
-        for( int j = 0; j < lsize[i]; j++ ) {
+	for( int j = 0; j < lsize[i]; j++ ) {
             weight[i][j] = new double[lsize[i - 1] + 1];
         }
     }
