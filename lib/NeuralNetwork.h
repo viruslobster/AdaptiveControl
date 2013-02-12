@@ -1,49 +1,32 @@
+
 #ifndef NEURALNETWORK_H
 #define NEURALNETWORK_H
-#include <vector>
-#include <cstdlib>
+
+#include <cassert>
 #include <iostream>
+#include <cstdio>
+#include <cmath>
 
 
+class CBackProp {
+    private:
+        double **out;// output vector for neurons
+        double **delta;// the blame for each neuron
+        double ***weight;// wieghts for all neurons
+        int numl;// number of layers in net
+        int *lsize;// a vector for the number of neurons in each layer
+        double beta;// learning weight
+        double alpha;// momentum
+        double ***prevDwt;// storage for previous weights, needed for momentum
+        double sigmoid(double in);// non-linear activation function
 
-struct Node {
-  std::vector<double> wieghts;
-  std::vector<double> inputs;
-  double output;
-  double blame;
-  Node(int inputs) {
-    for(int i=0;i<inputs;i++) {
-      double f = (double)rand() / RAND_MAX;
-      wieghts.push_back(-1 + f * 2);//random number between -1 and 1
-    }    
-  }
-  
-  void print() {
-    for(int i=0;i<wieghts.size();i++) {
-      std::cout << "[" << i << "]: " << wieghts[i] << std::endl;      
-    }
-  }
-  
-};
-typedef std::vector<Node> Layer;
-
-
-class NeuralNetwork {
-public:
-  NeuralNetwork(int num_inputs, int num_outputs, int num_hidden_layers, int num_hidden_nodes);
-  std::vector<double> input(std::vector<double> &inputs);
-  void learn(double error);
-  void update();
-  std::vector< Layer > layers;
-  void print();
-  
-  
-private:
-  Layer createLayer(int neurons, int inputs);
-  int num_inputs, num_outputs, num_hidden_layers, num_hidden_nodes;
-  double sigmoid(double value);
-  
-  
+    public:
+        ~CBackProp();
+        CBackProp(int nl, int *sz, double b, double a);
+        void bpgt(double *tgt); // backpropagates error
+        void ffwd(double *in); // feeds forward the input vector
+        double mse(double *tgt) const;// mean square error
+        double Out(int i) const;// returns the ouput of output node[i]
 };
 
-#endif // NEURALNETWORK_H
+#endif

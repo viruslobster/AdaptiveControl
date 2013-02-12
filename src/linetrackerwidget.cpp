@@ -1,16 +1,26 @@
 #include <QPainter>
 #include <QRect>
+#include <QString>
 #include "linetrackerwidget.h"
 
 
 LineTrackerWidget::LineTrackerWidget(QWidget *parent) : QWidget(parent) {
     image = new QImage(700, 200, QImage::Format_ARGB32);
     this->resize(100, 100);
+    
+    
 
 
 
   
 }
+
+void LineTrackerWidget::saveImage ( std::string filename ) {
+  
+  image->save(QString::fromStdString(filename), "png");
+
+}
+
 
 void LineTrackerWidget::drawPath() {
     clear();

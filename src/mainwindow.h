@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <string>
 #include "Controller.h"
 #include "Robot.h"
 
@@ -36,6 +37,8 @@ private:
   QTimer* updater;
   Controller* controller;  
   double speed;
+  double sum, count, lastAve;
+  std::string filename;
 
 };
 
