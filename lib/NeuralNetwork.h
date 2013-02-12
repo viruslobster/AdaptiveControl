@@ -8,7 +8,7 @@
 #include <cmath>
 
 
-class CBackProp {
+class NeuralNet {
     private:
         double **out;// output vector for neurons
         double **delta;// the blame for each neuron
@@ -21,8 +21,8 @@ class CBackProp {
         double sigmoid(double in);// non-linear activation function
 
     public:
-        ~CBackProp();
-        CBackProp(int nl, int *sz, double b, double a);
+        ~NeuralNet();
+        NeuralNet(int nl, int *sz, double b, double a);
         void bpgt(double *tgt); // backpropagates error
         void ffwd(double *in); // feeds forward the input vector
         double mse(double *tgt) const;// mean square error

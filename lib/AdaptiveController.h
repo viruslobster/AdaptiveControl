@@ -13,7 +13,7 @@ public:
   
 
 private:
-    CBackProp *nn;
+    NeuralNet *nn;
     double integral;
     double lastError;
     bool firstRun;

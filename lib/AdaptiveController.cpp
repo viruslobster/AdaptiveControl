@@ -23,7 +23,7 @@ AdaptiveController::AdaptiveController(int num_hidden_layers, int num_hidden_nod
 
 	
   // Creating the net
-  nn = new CBackProp(num_hidden_layers + 2, layers, beta, alpha);
+  nn = new NeuralNet(num_hidden_layers + 2, layers, beta, alpha);
 
   
   

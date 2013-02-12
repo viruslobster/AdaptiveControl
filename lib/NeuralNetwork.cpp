@@ -5,9 +5,7 @@
 
 
 
-CBackProp::CBackProp(int nl, int *sz, double b, double a) : beta (b), alpha (a) {
-
-
+NeuralNet::NeuralNet(int nl, int *sz, double b, double a) : beta (b), alpha (a) {
     // store layers and layer sizes
     numl = nl;
     lsize = new int[numl];
@@ -18,91 +16,68 @@ CBackProp::CBackProp(int nl, int *sz, double b, double a) : beta (b), alpha (a) 
 
     // init output nodes for each neuron
     out = new double*[numl];
-
-    for(int i = 0; i < numl; i++) {
-        out[i] = new double[lsize[i]];
-    }
-
     // init delta array for each node
     delta = new double*[numl];
-
-    for(int i = 1; i < numl; i++) {
-        delta[i] = new double[lsize[i]];
-    }
+    
+    for(int i = 0; i < numl; i++) {
+        out[i] = new double[lsize[i]];
+	if(i != 0) delta[i] = new double[lsize[i]];
+    }   
 
     //	init space for each wieght
     weight = new double**[numl];
-
-    for(int i = 1; i < numl; i++) {
-        weight[i] = new double*[lsize[i]];
-    }
-
-    for(int i = 1; i < numl; i++) {
-        for( int j = 0; j < lsize[i]; j++ ) {
-            weight[i][j] = new double[lsize[i - 1] + 1];
-        }
-    }
-
     //	init memory for previous weights
     prevDwt = new double**[numl];
-
-    for ( int i = 1; i < numl; i++ ) {
-        prevDwt[i] = new double*[lsize[i]];
-
-    }
-
-    for ( int i = 1; i < numl; i++ ) {
-        for ( int j = 0; j < lsize[i]; j++ ) {
-            prevDwt[i][j] = new double[lsize[i - 1] + 1];
-        }
-    }
-
     //	assign random initial wieghts
     srand ((unsigned)(time(NULL)));// seed the random number generator
 
-    for(int i = 1; i < numl; i++)
-        for(int j = 0; j < lsize[i]; j++)
-            for(int k = 0; k < lsize[i - 1] + 1; k++)
-                weight[i][j][k] = ( double ) ( rand() ) / ( RAND_MAX / 2 ) - 1; //32767
+    for(int i = 1; i < numl; i++) {
+        weight[i] = new double*[lsize[i]];
+        prevDwt[i] = new double*[lsize[i]];
 
-    //	initialize previous weights to 0 for first iteration
-    for ( int i = 1; i < numl; i++ )
-        for ( int j = 0; j < lsize[i]; j++ )
-            for ( int k = 0; k < lsize[i - 1] + 1; k++ )
+        for( int j = 0; j < lsize[i]; j++ ) {
+            weight[i][j] = new double[lsize[i - 1] + 1];
+            prevDwt[i][j] = new double[lsize[i - 1] + 1];
+
+            for(int k = 0; k < lsize[i - 1] + 1; k++) {
+                weight[i][j][k] = ( double ) ( rand() ) / ( RAND_MAX / 2 ) - 1; //32767
                 prevDwt[i][j][k] = ( double ) 0.0;
+            }
+        }
+    }
 }
 
 
 
-CBackProp::~CBackProp() {
+NeuralNet::~NeuralNet() {
     //	free out
-    for ( int i = 0; i < numl; i++ )
+    for(int i = 0;i < numl;i++)
         delete[] out[i];
 
     delete[] out;
 
     //	free delta
-    for ( int i = 1; i < numl; i++ )
+    for(int i = 1;i < numl;i++)
         delete[] delta[i];
 
     delete[] delta;
 
     //	free weight
-    for ( int i = 1; i < numl; i++ )
-        for ( int j = 0; j < lsize[i]; j++ )
+    for(int i = 1;i < numl;i++)
+        for(int j = 0;j < lsize[i];j++)
             delete[] weight[i][j];
 
-    for ( int i = 1; i < numl; i++ )
+    for (int i = 1;i < numl;i++)
         delete[] weight[i];
 
     delete[] weight;
 
     //	free prevDwt
-    for ( int i = 1; i < numl; i++ )
-        for ( int j = 0; j < lsize[i]; j++ )
+    for (int i = 1;i < numl;i++ )
+        for (int j = 0;j < lsize[i];j++)
             delete[] prevDwt[i][j];
 
-    for ( int i = 1; i < numl; i++ )
+    for (int i = 1;i < numl;i++)
         delete[] prevDwt[i];
 
     delete[] prevDwt;
@@ -112,12 +87,12 @@ CBackProp::~CBackProp() {
 }
 
 // sigmoid function
-double CBackProp::sigmoid(double in) {
+double NeuralNet::sigmoid(double in) {
     return (double)(1 / (1 + exp(-in)));
 }
 
 // mean square error
-double CBackProp::mse ( double *tgt ) const {
+double NeuralNet::mse ( double *tgt ) const {
     double mse = 0;
 
     for (int i = 0; i < lsize[numl - 1]; i++)
@@ -128,12 +103,12 @@ double CBackProp::mse ( double *tgt ) const {
 
 
 // returns the ouput of output node[i]
-double CBackProp::Out ( int i ) const {
+double NeuralNet::Out ( int i ) const {
     return out[numl - 1][i];// returns the ouput of output node[i]
 }
 
 // feeds forward the input vector
-void CBackProp::ffwd (double *in) {
+void NeuralNet::ffwd (double *in) {
     double sum;
 
     // feed input vector to input layer
@@ -160,7 +135,7 @@ void CBackProp::ffwd (double *in) {
 
 
 // backpropagates error
-void CBackProp::bpgt(double *tgt) {
+void NeuralNet::bpgt(double *tgt) {
     double sum;
 
 
