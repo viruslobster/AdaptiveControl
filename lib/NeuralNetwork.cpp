@@ -16,17 +16,13 @@ CBackProp::CBackProp(int nl, int *sz, double b, double a) : beta (b), alpha (a) 
 
     // init output nodes for each neuron
     out = new double*[numl];
-
-    for(int i = 0; i < numl; i++) {
-        out[i] = new double[lsize[i]];
-    }
-
     // init delta array for each node
     delta = new double*[numl];
-
-    for(int i = 1; i < numl; i++) {
-        delta[i] = new double[lsize[i]];
-    }
+    
+    for(int i = 0; i < numl; i++) {
+        out[i] = new double[lsize[i]];
+	if(i != 0) delta[i] = new double[lsize[i]];
+    }   
 
     //	init space for each wieght
     weight = new double**[numl];
