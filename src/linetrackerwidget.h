@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QImage>
+#include <string>
 #include "mainwindow.h"
 
 class LineTrackerWidget : public QWidget {
@@ -13,12 +14,14 @@ public:
   void drawPath();
   void drawRobot();
   void clear();
+  void saveImage(std::string filename);
     
 protected:
   virtual void paintEvent(QPaintEvent* );
 
 private:
   QImage* image;
+  
 
     
 };

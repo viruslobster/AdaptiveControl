@@ -2,7 +2,10 @@
 #include "mainwindow.h"
 #include <ctime> 
 #include <cstdlib>
+#include <cmath>
 #include <iostream>
+#include <vector>
+#include "Math.h"
 #include "NeuralNetwork.h"
 
 using namespace std;
@@ -12,5 +15,5 @@ int main(int argc, char** argv) {
     QApplication app(argc, argv);
     MainWindow foo;
     foo.show();
-    return app.exec();    
+    return app.exec();   
 }
