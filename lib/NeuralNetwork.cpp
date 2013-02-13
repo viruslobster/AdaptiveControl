@@ -3,8 +3,6 @@
 #include <ctime>
 #include <cstdlib>
 
-
-
 NeuralNet::NeuralNet(int nl, int *sz, double b, double a) : beta (b), alpha (a) {
     // store layers and layer sizes
     numl = nl;
