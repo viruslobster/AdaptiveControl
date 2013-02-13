@@ -6,9 +6,8 @@
 #include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
-    lastAve = 10000;
-    sum = 0;
-    count = 0;
+    lastAve = 10000; sum = 0; count = 0; inmin = 0; inmax = 1; outmin = 0; outmax = 1;
+    
     controller = new PIDcontroller(-1000, 1000);
     pathFunction = 'f';
     ui->setupUi(this);
@@ -41,7 +40,6 @@ double MainWindow::g(double x) {
 
 double MainWindow::h(double x) {
     if(x < 350) return 0;
-
     if(x >= 350) return 50 * sin(0.01 * x);
 }
 
@@ -51,43 +49,35 @@ void MainWindow::updateLoop() {
     switch(pathFunction) {
     case 'f':
         error = f(robot->x) - robot->y;
-
         break;
     case 'g':
         error = g(robot->x) - robot->y;
         break;
     case 'h':
         error = h(robot->x) - robot->y;
-
         break;
-
     }
 
     double correction = controller->getCorrection(error);
-    robot->move(speed, mapValues(correction, 0, 1, -PI / 1000, PI / 1000));
-    //robot->move(speed, mapValues(correction, -1000, 1000, -PI/2, PI/2));
+    robot->move(speed, mapValues(correction, inmin, inmax, outmin, outmax));
+    
     ui->lineTrackerWidget->drawRobot();
     this->repaint();
 
     sum += abs(error);
     count++;
 
-    if(robot->x > 700) {
-        updater->stop();
+    if(robot->x > 700) {        
         double ave = sum / count;
         std::cout << "Average error = " << ave << std::endl;
-
-        if(abs(lastAve - ave) > 0.000001 && ave > 5 && !(ave < 35)) {
-            delete robot;
-            robot = new Robot(0, -30);
-            sum = 0;
-            count = 0;
-            ui->lineTrackerWidget->drawPath();
-            updater->start(1);
-            lastAve = ave;
-        }
-
-
+	
+        delete robot;
+        robot = new Robot(0, -30);
+        sum = 0;
+        count = 0;
+        ui->lineTrackerWidget->drawPath();
+        
+        lastAve = ave;
     }
 }
 
@@ -124,25 +114,37 @@ void MainWindow::on_pushButton_2_clicked() {
     if(ui->radioButton_2->isChecked()) {
         controller = new PIDcontroller(-1000, 1000);
         filename = "PID_";
+	inmin = -1000; inmax = 1000; 
+	outmin = -PI / 2; outmax = PI / 2;
 
     } else if(ui->radioButton->isChecked()) {
         controller = new AdaptiveController(1, 4);
         filename = "NN_L1_N4_";
+	inmin = 0; inmax = 1; 
+	outmin = -PI / 1000.0; outmax = PI / 1000.0;
 
     } else if(ui->radioButton_6->isChecked()) {
         controller = new AdaptiveController(1, 6);
         filename = "NN_L1_N6_";
+	inmin = 0; inmax = 1; 
+	outmin = -PI / 1000.0; outmax = PI / 1000.0;
 
     } else if(ui->radioButton_7->isChecked()) {
         controller = new AdaptiveController(2, 4);
         filename = "NN_L2_N4_";
+	inmin = 0; inmax = 1; 
+	outmin = -PI / 2000.0; outmax = PI / 2000.0;
 
     } else if(ui->radioButton_8->isChecked()) {
         controller = new AdaptiveController(2, 6);
         filename = "NN_L2_N6_";
+	inmin = 0; inmax = 1; 
+	outmin = -PI / 3000.0; outmax = PI / 3000.0;
 
     } else {
         controller = new PIDcontroller(-1000, 1000);
+	inmin = -1000; inmax = 1000; 
+	outmin = -PI / 2; outmax = PI / 2;
     }
 
     controller->loadConfig(pathFunction);
