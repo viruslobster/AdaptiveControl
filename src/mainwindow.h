@@ -38,6 +38,7 @@ class MainWindow : public QMainWindow {
         double speed;
         double sum, count, lastAve;
         std::string filename;
+	double inmin, inmax, outmin, outmax;
 
 };
 
