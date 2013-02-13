@@ -40,7 +40,6 @@ double MainWindow::g(double x) {
 
 double MainWindow::h(double x) {
     if(x < 350) return 0;
-
     if(x >= 350) return 50 * sin(0.01 * x);
 }
 
@@ -50,16 +49,13 @@ void MainWindow::updateLoop() {
     switch(pathFunction) {
     case 'f':
         error = f(robot->x) - robot->y;
-
         break;
     case 'g':
         error = g(robot->x) - robot->y;
         break;
     case 'h':
         error = h(robot->x) - robot->y;
-
         break;
-
     }
 
     double correction = controller->getCorrection(error);
@@ -71,22 +67,17 @@ void MainWindow::updateLoop() {
     sum += abs(error);
     count++;
 
-    if(robot->x > 700) {
-        updater->stop();
+    if(robot->x > 700) {        
         double ave = sum / count;
         std::cout << "Average error = " << ave << std::endl;
-
-        if(abs(lastAve - ave) > 0.000001 && ave > 5 && !(ave < 35)) {
-            delete robot;
-            robot = new Robot(0, -30);
-            sum = 0;
-            count = 0;
-            ui->lineTrackerWidget->drawPath();
-            updater->start(1);
-            lastAve = ave;
-        }
-
-
+	
+        delete robot;
+        robot = new Robot(0, -30);
+        sum = 0;
+        count = 0;
+        ui->lineTrackerWidget->drawPath();
+        
+        lastAve = ave;
     }
 }
 
