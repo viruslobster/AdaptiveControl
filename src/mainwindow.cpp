@@ -121,25 +121,25 @@ void MainWindow::on_pushButton_2_clicked() {
         controller = new AdaptiveController(1, 4);
         filename = "NN_L1_N4_";
 	inmin = 0; inmax = 1; 
-	outmin = -PI / 1000; outmax = PI / 1000;
+	outmin = -PI / 1000.0; outmax = PI / 1000.0;
 
     } else if(ui->radioButton_6->isChecked()) {
         controller = new AdaptiveController(1, 6);
         filename = "NN_L1_N6_";
 	inmin = 0; inmax = 1; 
-	outmin = -PI / 1000; outmax = PI / 1000;
+	outmin = -PI / 1000.0; outmax = PI / 1000.0;
 
     } else if(ui->radioButton_7->isChecked()) {
         controller = new AdaptiveController(2, 4);
         filename = "NN_L2_N4_";
 	inmin = 0; inmax = 1; 
-	outmin = -PI / 1000; outmax = PI / 1000;
+	outmin = -PI / 2000.0; outmax = PI / 2000.0;
 
     } else if(ui->radioButton_8->isChecked()) {
         controller = new AdaptiveController(2, 6);
         filename = "NN_L2_N6_";
 	inmin = 0; inmax = 1; 
-	outmin = -PI / 1000; outmax = PI / 1000;
+	outmin = -PI / 3000.0; outmax = PI / 3000.0;
 
     } else {
         controller = new PIDcontroller(-1000, 1000);
