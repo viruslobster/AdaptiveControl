@@ -43,7 +43,7 @@
 /******************************************************************************/
 //	"Polar" version without trigonometric calls
 double randn_notrig(double mu, double sigma) {
-    static bool deviateAvailable=false;	//	flag
+    static bool deviateAvailable = false;	//	flag
     static float storedDeviate;			//	deviate from previous calculation
     double polar, rsquared, var1, var2;
 
@@ -55,27 +55,27 @@ double randn_notrig(double mu, double sigma) {
         //	choose pairs of uniformly distributed deviates, discarding those
         //	that don't fall within the unit circle
         do {
-            var1=2.0*(double(rand())/double(RAND_MAX)) - 1.0;
-            var2=2.0*(double(rand())/double(RAND_MAX)) - 1.0;
-            rsquared=var1*var1+var2*var2;
-        } while(rsquared>=1.0 || rsquared == 0.0);
+            var1 = 2.0 * (double(rand()) / double(RAND_MAX)) - 1.0;
+            var2 = 2.0 * (double(rand()) / double(RAND_MAX)) - 1.0;
+            rsquared = var1 * var1 + var2 * var2;
+        } while(rsquared >= 1.0 || rsquared == 0.0);
 
         //	calculate polar tranformation for each deviate
-        polar=sqrt(-2.0*log(rsquared)/rsquared);
+        polar = sqrt(-2.0 * log(rsquared) / rsquared);
 
         //	store first deviate and set flag
-        storedDeviate=var1*polar;
-        deviateAvailable=true;
+        storedDeviate = var1 * polar;
+        deviateAvailable = true;
 
         //	return second deviate
-        return var2*polar*sigma + mu;
+        return var2 * polar * sigma + mu;
     }
 
     //	If a deviate is available from a previous call to this function, it is
     //	returned, and the flag is set to false.
     else {
-        deviateAvailable=false;
-        return storedDeviate*sigma + mu;
+        deviateAvailable = false;
+        return storedDeviate * sigma + mu;
     }
 }
 
@@ -85,7 +85,7 @@ double randn_notrig(double mu, double sigma) {
 
 
 double randn_trig(double mu, double sigma) {
-    static bool deviateAvailable=false;	//	flag
+    static bool deviateAvailable = false;	//	flag
     static float storedDeviate;			//	deviate from previous calculation
     double dist, angle;
 
@@ -96,12 +96,12 @@ double randn_trig(double mu, double sigma) {
 
         //	choose a pair of uniformly distributed deviates, one for the
         //	distance and one for the angle, and perform transformations
-        dist=sqrt(-2.0 * log(double(rand()) / double(RAND_MAX)));
-        angle=2.0 * PI * (double(rand()) / double(RAND_MAX));
+        dist = sqrt(-2.0 * log(double(rand()) / double(RAND_MAX)));
+        angle = 2.0 * PI * (double(rand()) / double(RAND_MAX));
 
         //	calculate and store first deviate and set flag
-        storedDeviate=dist*cos(angle);
-        deviateAvailable=true;
+        storedDeviate = dist * cos(angle);
+        deviateAvailable = true;
 
         //	calcaulate return second deviate
         return dist * sin(angle) * sigma + mu;
@@ -110,12 +110,12 @@ double randn_trig(double mu, double sigma) {
     //	If a deviate is available from a previous call to this function, it is
     //	returned, and the flag is set to false.
     else {
-        deviateAvailable=false;
-        return storedDeviate*sigma + mu;
+        deviateAvailable = false;
+        return storedDeviate * sigma + mu;
     }
 }
 
 double mapValues(double x, double in_min, double in_max, double out_min, double out_max) {
-  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 

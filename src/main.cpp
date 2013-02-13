@@ -1,6 +1,6 @@
 #include <QtGui/QApplication>
 #include "mainwindow.h"
-#include <ctime> 
+#include <ctime>
 #include <cstdlib>
 #include <cmath>
 #include <iostream>
@@ -15,5 +15,5 @@ int main(int argc, char** argv) {
     QApplication app(argc, argv);
     MainWindow foo;
     foo.show();
-    return app.exec();   
+    return app.exec();
 }

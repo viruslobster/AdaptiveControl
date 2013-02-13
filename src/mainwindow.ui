@@ -218,6 +218,18 @@
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Stop</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="pushButton">
            <property name="font">
             <font>
@@ -225,7 +237,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Tune</string>
+            <string>Save Graph</string>
            </property>
           </widget>
          </item>

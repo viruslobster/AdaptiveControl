@@ -4,23 +4,19 @@
 #include "Controller.h"
 
 class PIDcontroller : public Controller {
+    public:
+        PIDcontroller();
+        PIDcontroller(double, double);
+        double getCorrection(double);
+        void loadConfig(char);
+        void tunePID(double, double, double);
 
-public:
-    PIDcontroller();
-    PIDcontroller(double, double);
-    double getCorrection(double);
-    void loadConfig(char);
-    void tunePID(double, double, double);
-    
-private:
-    long getTimeMilli();
-    double integral;
-    double Kp, Ki, Kd;
-    double lastError;
-    long lastTime;
-    bool isfirstrun;
-    double min, max;
-    
+    private:        
+        double integral;
+        double Kp, Ki, Kd;
+        double lastError;        
+        bool isfirstrun;
+        double min, max;
 };
 
 #endif // PIDCONTROLLER_H
