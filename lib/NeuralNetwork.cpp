@@ -18,11 +18,12 @@ NeuralNet::NeuralNet(int nl, int *sz, double b, double a) : beta (b), alpha (a) 
     out = new double*[numl];
     // init delta array for each node
     delta = new double*[numl];
-    
+
     for(int i = 0; i < numl; i++) {
         out[i] = new double[lsize[i]];
-	if(i != 0) delta[i] = new double[lsize[i]];
-    }   
+
+        if(i != 0) delta[i] = new double[lsize[i]];
+    }
 
     //	init space for each wieght
     weight = new double**[numl];
@@ -51,33 +52,33 @@ NeuralNet::NeuralNet(int nl, int *sz, double b, double a) : beta (b), alpha (a) 
 
 NeuralNet::~NeuralNet() {
     //	free out
-    for(int i = 0;i < numl;i++)
+    for(int i = 0; i < numl; i++)
         delete[] out[i];
 
     delete[] out;
 
     //	free delta
-    for(int i = 1;i < numl;i++)
+    for(int i = 1; i < numl; i++)
         delete[] delta[i];
 
     delete[] delta;
 
     //	free weight
-    for(int i = 1;i < numl;i++)
-        for(int j = 0;j < lsize[i];j++)
+    for(int i = 1; i < numl; i++)
+        for(int j = 0; j < lsize[i]; j++)
             delete[] weight[i][j];
 
-    for (int i = 1;i < numl;i++)
+    for (int i = 1; i < numl; i++)
         delete[] weight[i];
 
     delete[] weight;
 
     //	free prevDwt
-    for (int i = 1;i < numl;i++ )
-        for (int j = 0;j < lsize[i];j++)
+    for (int i = 1; i < numl; i++ )
+        for (int j = 0; j < lsize[i]; j++)
             delete[] prevDwt[i][j];
 
-    for (int i = 1;i < numl;i++)
+    for (int i = 1; i < numl; i++)
         delete[] prevDwt[i];
 
     delete[] prevDwt;
