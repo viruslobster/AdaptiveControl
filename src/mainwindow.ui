@@ -225,7 +225,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Tune</string>
+            <string>Save Graph</string>
            </property>
           </widget>
          </item>
