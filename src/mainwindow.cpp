@@ -6,7 +6,7 @@
 #include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
-    lastAve = 10000; sum = 0; count = 0; inmin = 0; inmax = 1; outmin = 0; outmax = 1;
+    lastAve = 10000; sum = 0; count = 0; inmin = 0; inmax = 1; outmin = 0; outmax = 1; stop = true;
     
     controller = new PIDcontroller(-1000, 1000);
     pathFunction = 'f';
@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->radioButton_5, SIGNAL( clicked() ), this, SLOT( on_radioButton_5_clicked() ));
     connect(ui->pushButton_2, SIGNAL( clicked() ), this, SLOT( on_pushButton_2_clicked() ));
     connect(ui->pushButton, SIGNAL( clicked() ), this, SLOT( on_pushButton_clicked() ));
+    connect(ui->pushButton_3, SIGNAL( clicked() ), this, SLOT( on_pushButton_3_clicked() ));
 }
 
 MainWindow::~MainWindow() {
@@ -78,6 +79,8 @@ void MainWindow::updateLoop() {
         ui->lineTrackerWidget->drawPath();
         
         lastAve = ave;
+	
+	if(stop) updater->stop();
     }
 }
 
@@ -116,35 +119,41 @@ void MainWindow::on_pushButton_2_clicked() {
         filename = "PID_";
 	inmin = -1000; inmax = 1000; 
 	outmin = -PI / 2; outmax = PI / 2;
+	stop = true;
 
     } else if(ui->radioButton->isChecked()) {
         controller = new AdaptiveController(1, 4);
         filename = "NN_L1_N4_";
 	inmin = 0; inmax = 1; 
 	outmin = -PI / 1000.0; outmax = PI / 1000.0;
+	stop = false;
 
     } else if(ui->radioButton_6->isChecked()) {
         controller = new AdaptiveController(1, 6);
         filename = "NN_L1_N6_";
 	inmin = 0; inmax = 1; 
 	outmin = -PI / 1000.0; outmax = PI / 1000.0;
+	stop = false;
 
     } else if(ui->radioButton_7->isChecked()) {
         controller = new AdaptiveController(2, 4);
         filename = "NN_L2_N4_";
 	inmin = 0; inmax = 1; 
 	outmin = -PI / 2000.0; outmax = PI / 2000.0;
+	stop = false;
 
     } else if(ui->radioButton_8->isChecked()) {
         controller = new AdaptiveController(2, 6);
         filename = "NN_L2_N6_";
 	inmin = 0; inmax = 1; 
 	outmin = -PI / 3000.0; outmax = PI / 3000.0;
+	stop = false;
 
     } else {
         controller = new PIDcontroller(-1000, 1000);
 	inmin = -1000; inmax = 1000; 
 	outmin = -PI / 2; outmax = PI / 2;
+	stop = true;
     }
 
     controller->loadConfig(pathFunction);
@@ -160,4 +169,9 @@ void MainWindow::on_pushButton_clicked() {
     name.append(".png");    
     ui->lineTrackerWidget->saveImage(name);
 }
+
+void MainWindow::on_pushButton_3_clicked() {
+  stop = true;
+}
+
 

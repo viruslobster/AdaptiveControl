@@ -30,8 +30,10 @@ class MainWindow : public QMainWindow {
         void on_radioButton_5_clicked();
         void on_pushButton_2_clicked();
         void on_pushButton_clicked();
+	void on_pushButton_3_clicked();
 
     private:
+	bool stop;
         Ui::MainWindow *ui;
         QTimer* updater;
         Controller* controller;
