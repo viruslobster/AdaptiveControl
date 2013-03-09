@@ -119,7 +119,7 @@ void MainWindow::on_pushButton_2_clicked() {
         filename = "PID_";
 	inmin = -1000; inmax = 1000; 
 	outmin = -PI / 2; outmax = PI / 2;
-	stop = true;
+	stop = false;
 
     } else if(ui->radioButton->isChecked()) {
         controller = new AdaptiveController(1, 4);
